@@ -1,0 +1,269 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bg-color: #ffffff; /* pure white */
+  --text-color: #333333; /* dark text */
+  --text-secondary-color: #555555;
+  --card-bg: #ffffff; /* white cards */
+  --card-border: #f1c40f; /* yellow accent */
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --btn-bg: transparent;
+  --btn-hover-bg: rgba(0, 0, 0, 0.05);
+  --accent-color: #f1c40f;
+  --input-bg: #ffffff;
+  --input-border: #ccc;
+}
+
+.dark-theme {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --text-secondary-color: #ccc;
+  --card-bg: #1e1e1e;
+  --card-border: #f1c40f;
+  --card-shadow: rgba(0, 0, 0, 0.6);
+  --btn-bg: transparent;
+  --btn-hover-bg: rgba(255, 255, 255, 0.1);
+  --accent-color: #f1c40f;
+  --input-bg: #2a2a2a;
+  --input-border: #444;
+}
+
+body {
+    font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+h1 {
+  font-size: 2rem;
+}
+.add-note-btn, .themeToggleBtn {
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s;
+}
+.add-note-btn:hover, .themeToggleBtn:hover {
+  background-color: #0056b3;
+}
+
+/* Notes Grid */
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* Dialog Modal */
+
+  dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  z-index: 999;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dialog-title {
+  font-size: 1.2rem;
+}
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: red;
+}
+.dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Form */
+.form-group, .from-group {
+  display: flex;
+  flex-direction: column;
+}
+.form-label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.form-textarea, input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  resize: vertical;
+  outline: none;
+}
+.form-textarea:focus, input[type="text"]:focus {
+  border-color: #007bff;
+}
+
+/* Dialog Buttons */
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+.cancel-btn, .save-btn {
+  padding: 8px 14px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.cancel-btn {
+  background-color: #ccc;
+}
+.save-btn {
+  background-color: #28a745;
+  color: white;
+}
+.cancel-btn:hover {
+  background-color: #bbb;
+}
+.save-btn:hover {
+  background-color: #218838;
+}
+
+/* Dark Theme (optional toggle logic via JS) */
+body.dark {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+body.dark input, body.dark textarea {
+  background-color: #2a2a2a;
+  color: #f5f5f5;
+  border-color: #555;
+}
+body.dark dialog {
+  background-color: #2b2b2b;
+}
+body.dark .add-note-btn,
+body.dark .themeToggleBtn {
+  background-color: #444;
+}
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+}
+
+.empty-state h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.add-note-btn {
+  padding: 10px 16px;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-note-btn:hover {
+  background-color: #357ab7;
+}
+
+.note-card {
+  background: #fff8c6;
+  border-left: 6px solid #f1c40f;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin: 12px;
+  border-radius: 12px;
+  max-width: 320px;
+  font-family: 'Segoe UI', sans-serif;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.note-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.note-card p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+.note-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.note-actions button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.note-actions button svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--text-color);
+  transition: fill 0.2s ease;
+}
+
+.note-actions button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark-theme .note-actions button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
